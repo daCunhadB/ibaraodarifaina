@@ -9,15 +9,15 @@
 <style>
 :root{
   --sky-1:#cfe1f2;
-  --sky-2:#9fbfe0;
-  --sky-3:#6f97c4;
-  --indigo:#141d33;
-  --indigo-2:#1f2b47;
-  --gold:#c8a24c;
-  --gold-bright:#e6c877;
-  --parchment:#f4eee0;
-  --parchment-2:#ece2c9;
-  --terra:#9a4a30;
+  --sky-2:#87CEEB;
+  --sky-3:#7aaab9;
+  --indigo:#141926;
+  --indigo-2:#002F6C;
+  --gold:#B9897A;
+  --gold-bright:#FFE2C8;
+  --parchment:#FFE2CB;
+  --parchment-2:#B97AAA;
+  --terra:#B9A97A;
   --ink:#1c1710;
   --ink-soft:#4a4436;
   color-scheme: light;
@@ -26,7 +26,7 @@
 html{scroll-behavior:smooth;}
 body{
   font-family:'Source Sans 3', sans-serif;
-  background:var(--parchment);
+  background:var(--terra);
   color:var(--ink);
   overflow-x:hidden;
   -webkit-font-smoothing:antialiased;
@@ -57,25 +57,25 @@ img{display:block;max-width:100%;}
   position:fixed; top:0; left:0; right:0; z-index:100;
   display:flex; align-items:center; justify-content:space-between;
   padding:18px 5vw;
-  background:rgba(20,29,51,0);
+  background:var(--indigo);
   transition:background 0.5s ease, padding 0.4s ease, box-shadow .4s ease;
 }
 .nav.scrolled{
-  background:rgba(20,29,51,0.86);
+  background:var(--ink);
   backdrop-filter:blur(10px);
   padding:12px 5vw;
-  box-shadow:0 6px 24px rgba(0,0,0,0.18);
+  box-shadow:0 6px 24px var(--ink);
 }
 .nav-brand{display:flex;align-items:center;gap:12px;}
 .nav-avatar{
   width:38px;height:38px;border-radius:50%;
   overflow:hidden; border:1.5px solid var(--gold);
-  box-shadow:0 0 0 3px rgba(200,162,76,0.15);
+  box-shadow:0 0 0 3px (--terra);
   flex-shrink:0;
 }
 .nav-avatar img{width:100%;height:100%;object-fit:cover;object-position:20% 30%;}
 .nav-name{
-  color:#f4eee0; font-family:'Cormorant', serif; font-weight:600;
+  color: var(--parchment); font-family:'Cormorant', serif; font-weight:600;
   font-size:1.05rem; letter-spacing:0.02em; line-height:1.1;
 }
 .nav-name small{
@@ -84,7 +84,7 @@ img{display:block;max-width:100%;}
 }
 .nav-links{display:flex; gap:34px; list-style:none;}
 .nav-links a{
-  color:#e9e2cf; font-size:0.82rem; letter-spacing:0.04em; font-weight:500;
+  color:var(--gold-bright); font-size:0.82rem; letter-spacing:0.04em; font-weight:500;
   position:relative; padding-bottom:4px; opacity:0.88; transition:opacity .3s;
 }
 .nav-links a::after{
@@ -105,7 +105,7 @@ img{display:block;max-width:100%;}
   .nav-toggle{
     display:flex; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; z-index:200; padding:6px;
   }
-  .nav-toggle span{width:22px;height:2px;background:#f4eee0;transition:.3s;}
+  .nav-toggle span{width:22px;height:2px;background:var(--parchment);transition:.3s;}
 }
 
 /* ---------- SKY BACKDROP (shared, continuous) ---------- */
@@ -117,10 +117,10 @@ img{display:block;max-width:100%;}
 .cloud-layer{
   position:absolute; inset:0; pointer-events:none;
   background-image:
-    radial-gradient(ellipse 60% 30% at 15% 20%, rgba(255,255,255,0.75), transparent 60%),
-    radial-gradient(ellipse 50% 25% at 80% 15%, rgba(255,255,255,0.6), transparent 60%),
-    radial-gradient(ellipse 70% 35% at 50% 85%, rgba(255,255,255,0.55), transparent 60%),
-    radial-gradient(ellipse 45% 25% at 90% 70%, rgba(255,255,255,0.5), transparent 60%);
+    radial-gradient(ellipse 60% 30% at 15% 20%, var(--gold-bright), transparent 60%),
+    radial-gradient(ellipse 50% 25% at 80% 15%, var(--parchment), transparent 60%),
+    radial-gradient(ellipse 70% 35% at 50% 85%, var(--gold), transparent 60%),
+    radial-gradient(ellipse 45% 25% at 90% 70%, var(--parchment-2), transparent 60%);
   mix-blend-mode:screen;
   will-change:transform;
 }
@@ -158,7 +158,7 @@ img{display:block;max-width:100%;}
 .btn-solid{background:var(--indigo); color:var(--parchment);}
 .btn-solid:hover{background:var(--terra); border-color:var(--terra); transform:translateY(-2px);}
 .btn-ghost{background:transparent; color:var(--indigo);}
-.btn-ghost:hover{background:rgba(20,29,51,0.08); transform:translateY(-2px);}
+.btn-ghost:hover{background:var(--ink); transform:translateY(-2px);}
 
 .scroll-cue{
   position:absolute; bottom:38px; left:50%; transform:translateX(-50%);
@@ -221,10 +221,10 @@ section{position:relative; padding:min(14vw,140px) 6vw;}
 /* ---------- HISTORY (dark) ---------- */
 .history{
   background:radial-gradient(ellipse 120% 60% at 50% 0%, var(--indigo-2), var(--indigo) 70%);
-  color:#e9e2cf;
+  color:var(--gold-bright);
 }
-.history .section-head h2{color:#f4eee0;}
-.history .section-head p{color:#b9c0d1;}
+.history .section-head h2{color:var(--gold-bright);}
+.history .section-head p{color:var(--sky-1);}
 .timeline{max-width:840px; margin:0 auto; position:relative;}
 .timeline::before{
   content:''; position:absolute; left:130px; top:0; bottom:0; width:1px;
@@ -248,17 +248,17 @@ section{position:relative; padding:min(14vw,140px) 6vw;}
   top:4px; box-shadow:0 0 0 5px var(--indigo);
 }
 @media(max-width:640px){.t-dot{left:14px;}}
-.t-body h3{font-family:'Cormorant', serif; font-size:1.5rem; color:#f4eee0; margin-bottom:10px; font-weight:600;}
-.t-body p{color:#c3c9d8; line-height:1.68; font-size:1rem;}
+.t-body h3{font-family:'Cormorant', serif; font-size:1.5rem; color:var(--parchment); margin-bottom:10px; font-weight:600;}
+.t-body p{color:var(--sky-1); line-height:1.68; font-size:1rem;}
 
 /* ---------- BARÃO SECTION ---------- */
 .barao{
   background:var(--parchment);
   background-image:
     linear-gradient(var(--parchment), var(--parchment)),
-    repeating-linear-gradient(45deg, rgba(154,74,48,0.025) 0 2px, transparent 2px 26px);
+    repeating-linear-gradient(45deg, var(--ink) 0 2px, transparent 2px 26px);
 }
-.plaque-wrap{max-width:980px; margin:0 auto; display:grid; grid-template-columns:0.85fr 1.15fr; gap:0; border:1px solid var(--gold); background:#fff9ec;}
+.plaque-wrap{max-width:980px; margin:0 auto; display:grid; grid-template-columns:0.85fr 1.15fr; gap:0; border:1px solid var(--gold); background:var(--gold-bright);}
 @media(max-width:800px){.plaque-wrap{grid-template-columns:1fr;}}
 .plaque-visual{
   position:relative; background:linear-gradient(160deg, var(--indigo) 0%, var(--indigo-2) 100%);
@@ -266,11 +266,11 @@ section{position:relative; padding:min(14vw,140px) 6vw;}
 }
 .plaque-visual .crest{
   width:170px; height:170px; border-radius:50%; overflow:hidden; position:relative; z-index:2;
-  border:3px solid var(--gold-bright); box-shadow:0 0 0 8px rgba(200,162,76,0.14), 0 20px 50px rgba(0,0,0,0.4);
+  border:3px solid var(--gold-bright); box-shadow:0 0 0 8px var(--ink-soft), 0 20px 50px var(--ink);
 }
 .plaque-visual .crest img{width:100%;height:100%;object-fit:cover; object-position:35% 30%;}
 .plaque-visual .ring{
-  position:absolute; width:260px; height:260px; border:1px solid rgba(230,200,119,0.35); border-radius:50%;
+  position:absolute; width:260px; height:260px; border:1px solid var(--terra); border-radius:50%;
   animation:spin 40s linear infinite;
 }
 .plaque-visual .ring.r2{width:320px;height:320px; animation-duration:60s; animation-direction:reverse; border-style:dashed;}
@@ -287,13 +287,13 @@ section{position:relative; padding:min(14vw,140px) 6vw;}
 .plaque-text p:last-child{margin-bottom:0;}
 
 /* ---------- PATRIMONIO ---------- */
-.patrimonio{background:var(--parchment-2);}
-.grid-cards{max-width:1120px; margin:0 auto; display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--gold);border:1px solid var(--gold);}
+.patrimonio{background:var(--gold);}
+.grid-cards{max-width:1120px; margin:0 auto; display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--terra);border:1px solid var(--ink-soft);}
 @media(max-width:920px){.grid-cards{grid-template-columns:repeat(2,1fr);}}
 @media(max-width:520px){.grid-cards{grid-template-columns:1fr;}}
 .card{background:var(--parchment); padding:38px 28px; transition:transform .35s ease, background .35s ease;}
-.card:hover{background:#fff9ec; transform:translateY(-6px);}
-.card .num{font-family:'Space Mono',monospace; color:var(--gold); font-size:0.75rem; letter-spacing:0.1em; margin-bottom:20px; display:block;}
+.card:hover{background:var(--parchment); transform:translateY(-6px);}
+.card .num{font-family:'Space Mono',monospace; color:var(--ink-soft); font-size:0.75rem; letter-spacing:0.1em; margin-bottom:20px; display:block;}
 .card h3{font-size:1.3rem; color:var(--indigo); margin-bottom:12px; line-height:1.2;}
 .card p{color:var(--ink-soft); font-size:0.94rem; line-height:1.6;}
 
@@ -304,7 +304,7 @@ section{position:relative; padding:min(14vw,140px) 6vw;}
 }
 .final-angel{
   position:absolute; left:-6vw; bottom:-6%; width:min(46vw,520px); opacity:0.94;
-  filter:drop-shadow(0 20px 50px rgba(20,29,51,0.2));
+  filter:drop-shadow 0 20px 50px var(--indigo);
 }
 .final-angel img{width:100%; -webkit-mask-image:radial-gradient(ellipse 60% 60% at 50% 50%, #000 55%, transparent 88%); mask-image:radial-gradient(ellipse 60% 60% at 50% 50%, #000 55%, transparent 88%);}
 .final h2{font-size:clamp(2.2rem,5vw,3.8rem); color:var(--indigo); max-width:16ch;}
@@ -313,19 +313,19 @@ section{position:relative; padding:min(14vw,140px) 6vw;}
 
 /* ---------- FOOTER ---------- */
 footer{
-  background:var(--indigo); color:#c3c9d8; padding:70px 6vw 34px;
+  background:var(--indigo); color: var(--sky-1); padding:70px 6vw 34px;
 }
-.foot-grid{max-width:1120px; margin:0 auto; display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:50px; padding-bottom:50px; border-bottom:1px solid rgba(230,200,119,0.18);}
+.foot-grid{max-width:1120px; margin:0 auto; display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:50px; padding-bottom:50px; border-bottom:1px solid var(--ink-soft);}
 @media(max-width:760px){.foot-grid{grid-template-columns:1fr; gap:34px;}}
 .foot-brand{display:flex; gap:14px; align-items:center; margin-bottom:18px;}
 .foot-brand .nav-avatar{width:44px;height:44px;}
-.foot-brand-name{font-family:'Cormorant',serif; color:#f4eee0; font-size:1.2rem; font-weight:600;}
-footer p{font-size:0.92rem; line-height:1.6; max-width:36ch; color:#b9c0d1;}
+.foot-brand-name{font-family:'Cormorant',serif; color:var(--parchment); font-size:1.2rem; font-weight:600;}
+footer p{font-size:0.92rem; line-height:1.6; max-width:36ch; color:var(--sky-2);}
 footer h4{font-family:'Space Mono',monospace; font-size:0.7rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--gold-bright); margin-bottom:18px;}
 footer ul{list-style:none; display:flex; flex-direction:column; gap:11px;}
-footer ul a{font-size:0.92rem; color:#c3c9d8; transition:color .3s;}
+footer ul a{font-size:0.92rem; color:var(--sky-1); transition:color .3s;}
 footer ul a:hover{color:var(--gold-bright);}
-.foot-bottom{max-width:1120px; margin:26px auto 0; display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; font-size:0.78rem; color:#7f88a0;}
+.foot-bottom{max-width:1120px; margin:26px auto 0; display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; font-size:0.78rem; color:var(--sky-3);}
 
 /* fade-in body */
 body.loaded .hero-eyebrow, body.loaded .hero h1, body.loaded .hero-sub, body.loaded .hero-cta{
@@ -535,7 +535,7 @@ body.loaded .hero-cta{animation-delay:.44s;}
     <h2>Ajude a manter essa voz ecoando</h2>
     <p>Pesquisadores, famílias, instituições e curiosos pela história do Triângulo Mineiro são bem-vindos a caminhar com o Instituto Barão da Rifaina.</p>
     <div class="hero-cta">
-      <a href="mailto:contato@baraodarifaina.org.br" class="btn btn-solid">Falar com o Instituto</a>
+      <a href="mailto:ibaraodarifaina@proton.me" class="btn btn-solid">Falar com o Instituto</a>
       <a href="https://www.instagram.com/ibaraodarifaina" target="_blank" rel="noopener" class="btn btn-ghost">Ver no Instagram</a>
     </div>
   </div>
